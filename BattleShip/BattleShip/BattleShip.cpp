@@ -99,8 +99,8 @@ bool IsValidInput(string playerInput){
 }
 
 string WaitForInput(){
-    string input;
     while (true){
+        string input;
         cin >> input;
         if (IsValidInput(input))
             return input;
@@ -110,17 +110,16 @@ string WaitForInput(){
 
 int main(){
     PlaceShips();
-    DisplayGrid(gridP1);
-    cout << endl;
-    cout << endl;
-    DisplayGrid(gridP2);
-    string input;
+    // DisplayGrid(gridP1);
+    // cout << endl;
+    // cout << endl;
+    // DisplayGrid(gridP2);
     int x = 0;
     int y = 0;
     while (true){
         cout << "Player 1, do your thing!" << endl;
 
-        input = WaitForInput();
+        string input = WaitForInput();
         x = tolower(input[0]) - 97;
         y = (int)input[1] - 48;
         if (SuccessfulAttack(x, y, gridP1) && AmountOfShipsLeft(gridP1) <= 0){
